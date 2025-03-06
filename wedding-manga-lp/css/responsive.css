@@ -1,0 +1,238 @@
+/* Responsive Styles for Our Wedding Manga LP */
+
+/* Large Screens (Desktops) */
+@media screen and (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+}
+
+/* Medium Screens (Tablets) */
+@media screen and (max-width: 992px) {
+    html {
+        font-size: 15px;
+    }
+    
+    .container {
+        max-width: 720px;
+    }
+    
+    .section {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .hero {
+        min-height: 500px;
+    }
+    
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .about-text, .about-image {
+        width: 100%;
+    }
+    
+    .process-step {
+        flex-direction: column !important;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .process-timeline {
+        display: none;
+    }
+    
+    .pricing-plan {
+        min-width: 220px;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--color-white);
+        box-shadow: var(--shadow-lg);
+        padding: var(--spacing-xl) var(--spacing-md);
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+    
+    .nav.active {
+        right: 0;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-lg);
+    }
+    
+    .nav-list li {
+        width: 100%;
+    }
+    
+    .nav-list li a.btn {
+        display: block;
+        text-align: center;
+        margin-top: var(--spacing-md);
+    }
+}
+
+/* Small Screens (Mobile Landscape) */
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+    
+    .container {
+        max-width: 540px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    .hero {
+        min-height: 400px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .features {
+        flex-direction: column;
+    }
+    
+    .feature {
+        width: 100%;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .testimonial-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .testimonial {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .pricing-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .pricing-plan {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .pricing-plan.featured {
+        transform: scale(1);
+        order: -1;
+    }
+    
+    .pricing-plan.featured:hover {
+        transform: translateY(-5px);
+    }
+    
+    .footer-container {
+        flex-direction: column;
+    }
+    
+    .footer-logo, .footer-links {
+        width: 100%;
+        margin-bottom: var(--spacing-md);
+    }
+}
+
+/* Extra Small Screens (Mobile Portrait) */
+@media screen and (max-width: 576px) {
+    html {
+        font-size: 13px;
+    }
+    
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .section {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .hero {
+        min-height: 350px;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .btn-large {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .example-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .process-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .contact-cta {
+        padding: var(--spacing-md);
+    }
+    
+    .contact-title {
+        font-size: 1.5rem;
+    }
+}
