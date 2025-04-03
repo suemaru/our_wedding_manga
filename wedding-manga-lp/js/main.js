@@ -58,17 +58,33 @@ function initFaqAccordion() {
 // Scroll animation for elements
 function initScrollAnimation() {
     const fadeElements = document.querySelectorAll('.fade-in');
+    const slideElements = document.querySelectorAll('.slide-in');
     
     // Initial check for elements in viewport
     checkFadeElements();
+    checkSlideElements();
     
     // Check on scroll
-    window.addEventListener('scroll', checkFadeElements);
+    window.addEventListener('scroll', () => {
+        checkFadeElements();
+        checkSlideElements();
+    });
     
     function checkFadeElements() {
         fadeElements.forEach(element => {
             const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150; // How many pixels from the top before the element becomes visible
+            const elementVisible = 150;
+            
+            if (elementTop < window.innerHeight - elementVisible) {
+                element.classList.add('visible');
+            }
+        });
+    }
+    
+    function checkSlideElements() {
+        slideElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
             
             if (elementTop < window.innerHeight - elementVisible) {
                 element.classList.add('visible');

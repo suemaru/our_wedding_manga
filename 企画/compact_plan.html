@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コンパクトビジネスプラン - イラスト/漫画サービス</title>
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFD166;
+            --dark: #2F4858;
+            --light: #F7F7F7;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin: 2rem 0 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
+            background-color: var(--primary);
+            margin-right: 0.5rem;
+            transform: rotate(45deg);
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            color: var(--secondary);
+            margin: 1.5rem 0 0.75rem;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--primary);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px var(--shadow);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin: 1rem 0;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        li::before {
+            content: '•';
+            color: var(--secondary);
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+        }
+        
+        .highlight {
+            background-color: rgba(255, 209, 102, 0.2);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background-color: var(--primary);
+            color: white;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex-grow: 1;
+        }
+        
+        .step-content h4 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .icon {
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            font-size: 1.5rem;
+        }
+        
+        .summary {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+        
+        .summary h2 {
+            color: white;
+        }
+        
+        .summary h2::before {
+            background-color: var(--accent);
+        }
+        
+        .risk-item {
+            display: flex;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+        }
+        
+        .risk-type {
+            background-color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-right: 1rem;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+        
+        .risk-content {
+            flex-grow: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>コンパクトビジネスプラン</h1>
+            <p>想い出をシンプル×ハイクオリティで形に残す結婚式向けイラスト・漫画サービス</p>
+        </header>
+        
+        <div class="section">
+            <h2>1. ビジネスコンセプト</h2>
+            <div class="card">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">「シンプル×ハイクオリティで大きな感動を」</h3>
+                <ul>
+                    <li>副業体制で無理なく運営するため、<span class="highlight">最小限のページ数・納品形態</span>に特化しつつも、完成品のクオリティを担保する。</li>
+                    <li>大がかりなストーリー漫画ではなく、<span class="highlight">ワンシーンや1～2ページでまとめる "想い出イラスト／漫画"</span> を中心に提供。</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>2. サービス概要</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>2-1. 特大ワンページ漫画</h3>
+                    <ul>
+                        <li><span class="highlight">A2またはA3サイズの1ページ・フルカラーイラスト／漫画</span></li>
+                        <li>新郎新婦の出会いや馴れ初めを「1ページ漫画」風にまとめる。</li>
+                        <li>ウェルカムボードとして式場入り口に飾れるサイズ感。</li>
+                        <li>簡単なセリフや説明文を入れ、物語性をプチ演出。</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>2-2. "プチストーリー"2ページ漫画</h3>
+                    <ul>
+                        <li>結婚式の「お色直し再入場」のタイミングなどでスライド上映できる、<span class="highlight">2ページのダイジェスト漫画</span>をデータ納品。</li>
+                        <li>印刷してゲストに配ることも可能（オプション対応）。</li>
+                        <li>ストーリーは<span class="highlight">テンプレ＋個別要素</span>を織り交ぜて作成するため、制作コストを抑えつつオリジナル感を出す。</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3>2-3. フォトフレーム・パネル納品</h3>
+                    <ul>
+                        <li>仕上げた1ページ漫画やイラストを、<span class="highlight">フォトフレームやパネル</span>として納品。</li>
+                        <li>製本を省いて、必要最小限の制作物に特化。</li>
+                        <li>データ納品もセットで行い、SNSシェアや結婚式の演出映像にも流用可能。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>3. 料金プラン</h2>
+            <p>副業体制で抱え込みすぎないよう、<span class="highlight">1ヶ月あたりの受注数を制限</span>する想定。</p>
+            
+            <div class="grid">
+                <div class="card">
+                    <h4>ライトプラン</h4>
+                    <div class="price">¥50,000</div>
+                    <ul>
+                        <li>ワンカット（A3サイズ程度）フルカラーイラスト</li>
+                        <li>シンプル背景＋お二人の似顔絵・ミニエピソード入り</li>
+                        <li>データ納品（PDF/JPEG）＋A3高品質印刷1枚（フレームなし）</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>スタンダードプラン</h4>
+                    <div class="price">¥80,000</div>
+                    <ul>
+                        <li>特大1ページ漫画（A3 or A2サイズ）フルカラー</li>
+                        <li>4～5コマ程度で馴れ初めダイジェストを表現</li>
+                        <li>データ納品＋<span class="highlight">パネル仕上げ</span>（A2サイズ推奨）1点</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>プチストーリープラン</h4>
+                    <div class="price">¥100,000</div>
+                    <ul>
+                        <li>2ページ漫画（A4見開き相当）フルカラー</li>
+                        <li>テンプレベースにセリフやキャラクターを落とし込む</li>
+                        <li>データ納品のみ（追加オプションでパネル化／フレーム化OK）</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 2rem;">
+                <h4>オプション例</h4>
+                <ul>
+                    <li>パネル仕上げ、フレーム、メッセージカード追加、背景の細密描き込み、キャラクター人数追加、など</li>
+                </ul>
+            </div>
+            
+            <div class="card" style="margin-top: 2rem; border-left: 4px solid var(--accent);">
+                <h4>受注制限の目安</h4>
+                <ul>
+                    <li><span class="highlight">月3～5件まで</span>に限定。1件あたり制作工数を1～2週間程度と見込み、メインの仕事との兼ね合いが取れるようにする。</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>4. 制作フローとスケジュール管理</h2>
+            
+            <h3>4-1. 制作フロー（シンプル版）</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>問い合わせ・ヒアリング（営業担当）</h4>
+                    <ul>
+                        <li>基本オンライン（Zoom／チャット）で行い、短時間で要件を確認。</li>
+                        <li>依頼内容・式の日程・希望プランを確定。</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>簡易ラフ作成（漫画家）</h4>
+                    <ul>
+                        <li>コマ割りや配置のみ（本格的なネームは省略し、短時間で可能なラフに）。</li>
+                        <li>お客様に1回だけ確認してもらい、OKをもらう。</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>仕上げ（漫画家）</h4>
+                    <ul>
+                        <li>色塗りや最終仕上げを担当。</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>納品（ディレクター / 営業担当）</h4>
+                    <ul>
+                        <li>データ送付、パネルやフレームの場合は外部業者への発注＋配送。</li>
+                        <li>仕上がりを最終確認し、クレーム対応や軽微な文言修正を行う。</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>4-2. スケジュール管理</h3>
+            <ul>
+                <li>納品までは<span class="highlight">3～4週間程度</span>を標準とし、最低でも<span class="highlight">式の1ヶ月前</span>までに依頼してもらうよう案内。</li>
+                <li>多忙期や「どうしても直前に依頼したい場合」は、<span class="highlight">追加料金（ラッシュ料金）</span>を設定し受注件数を調整。</li>
+                <li>副業前提なので、<span class="highlight">全員のスケジュール共有カレンダー</span>を活用し、納期管理を徹底。</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>6. マーケティング戦略</h2>
+            
+            <h3>6-1. ターゲット</h3>
+            <ul>
+                <li>「結婚式はやるけど、大掛かりな映像や分厚い漫画まではいらない。ただ、記念に何か"特別な"ものを残したい」というカップル</li>
+                <li>カジュアルなウェディングパーティや二次会などで、サクッと置ける<span class="highlight">ウェルカムボード代わり</span>が欲しい層</li>
+            </ul>
+            
+            <h3>6-2. プロモーション方法</h3>
+            <ul>
+                <li><span class="highlight">InstagramやTwitter</span>など、SNSで実例を小出しに紹介
+                    <ul>
+                        <li>特に「1ページ漫画の仕上がり写真」を見せるだけで、魅力が伝わりやすい</li>
+                    </ul>
+                </li>
+                <li><span class="highlight">ウェディング情報サイトへの掲載</span>
+                    <ul>
+                        <li>小さなプランでも、結婚式関連のポータル（みんなのウェディング、ゼクシィ等）にシンプルな広告を出す</li>
+                    </ul>
+                </li>
+                <li><span class="highlight">紹介キャンペーン</span>
+                    <ul>
+                        <li>紹介者・紹介先それぞれに「1,000円オフ」など簡単な特典を付与し、口コミを促進</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h3>6-3. 受注管理とフィルタリング</h3>
+            <ul>
+                <li><span class="highlight">オンライン問い合わせフォーム</span>で日時やプラン、挙式までの期間を必須入力</li>
+                <li>「急ぎ依頼」「特殊リクエスト」の際は追加料金で受けるか、<span class="highlight">余裕がなければ断る</span>ことも選択肢に</li>
+                <li>無理な受注はしない仕組みを明確化</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>7. 収益試算（目安）</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <h4>月間の受注件数目標：3～5件</h4>
+                    <ul>
+                        <li>単価平均：7～8万円（ライト～スタンダードが中心と仮定）</li>
+                        <li>月売上：21～40万円程度</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>コスト</h4>
+                    <ul>
+                        <li>印刷・パネル発注費、配送費など：1案件あたり5,000～10,000円（仕様による）</li>
+                        <li>SNSやサイト運営費、広告費など：月1～3万円</li>
+                        <li>漫画家・営業担当への報酬配分：プロフィットシェアか、1件あたり固定報酬かを事前に決める</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>利益</h4>
+                    <ul>
+                        <li>1件当たりの手残り（税引き前）で3～5万円を目標に設定すれば、副業としては十分なプラスになる可能性がある</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>8. リスク・対策</h2>
+            
+            <div class="risk-item">
+                <div class="risk-type">納期遅延</div>
+                <div class="risk-content">
+                    <p>副業であるため、想定外の本業繁忙が発生する可能性。</p>
+                    <p><span class="highlight">受注制限</span>＋<span class="highlight">ゆとりのある納期</span>設定で対策。</p>
+                </div>
+            </div>
+            
+            <div class="risk-item">
+                <div class="risk-type">クオリティ</div>
+                <div class="risk-content">
+                    <p>制作工数を極力抑えながらも、見本のテイストに準拠する。</p>
+                    <p>本番前の簡易ラフ確認を1回行い、大きなずれをなくす。</p>
+                </div>
+            </div>
+            
+            <div class="risk-item">
+                <div class="risk-type">キャンセル/修正</div>
+                <div class="risk-content">
+                    <p>契約時に、「修正は1回のみ」「制作開始後の大幅変更は追加料金」と明文化。</p>
+                </div>
+            </div>
+            
+            <div class="risk-item">
+                <div class="risk-type">急ぎ依頼</div>
+                <div class="risk-content">
+                    <p>通常2～3週間の制作期間を確保。</p>
+                    <p>「2週間を切る」場合は<span class="highlight">追加料金</span>の設定か、断りのオプションを選択。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>9. 今後の展開アイデア</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <h4>家族や友人へのプレゼント向け</h4>
+                    <p>婚約祝い、誕生日、記念日など、結婚式以外の"特別な日"用イラストプランも拡充。</p>
+                </div>
+                
+                <div class="card">
+                    <h4>企業向け"記念イラスト"制作</h4>
+                    <p>創立記念や周年記念で社史を1ページ漫画にするなど、法人案件へ展開。</p>
+                </div>
+                
+                <div class="card">
+                    <h4>追加オプション強化</h4>
+                    <p>オンライン打ち合わせで似顔絵をリアルタイムに描く「ライブドローイング配信」など、新しい演出アイデアを検討（可能であれば）。</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="summary">
+            <h2>まとめ</h2>
+            <ul>
+                <li><span class="highlight">シンプルな1～2ページ漫画／イラストに特化</span>することで、制作工数・修正対応の手間を抑え、副業でも<span class="highlight">無理なく回せる</span>仕組みを構築。</li>
+                <li><span class="highlight">月3～5件程度の受注</span>を目安に、短期間で納品できるスタイルを作る。</li>
+                <li>副業とはいえクオリティは重視し、「短いページ数でも<span class="highlight">最高の思い出に</span>」をモットーに訴求。</li>
+            </ul>
+            <p style="margin-top: 1rem;">このように<span class="highlight">"特化"と"受注制限"</span>を組み合わせた形であれば、3人が本業をこなしながらでも継続しやすく、手間を最小限に抑えつつも、お客様には<span class="highlight">満足度の高い作品</span>を届けられるビジネスが成立しやすいでしょう。</p>
+        </div>
+    </div>
+</body>
+</html>
